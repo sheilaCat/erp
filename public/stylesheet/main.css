@@ -1,0 +1,35 @@
+/* #left-nav {
+	margin-top: 52px;
+	font-size: 1.3rem;
+} */
+/* body {
+overflow-y: hidden;
+}  */
+
+/* #top-nav > .container > a.header{
+	margin-left: -277px;
+} */
+
+/* #container {
+	height: 91%;
+} */
+
+#message-box {
+	overflow-y: auto;
+	height: 423px;
+}
+
+#footer {
+	position: relative;
+	width: 100%;
+	bottom:0;
+	margin-bottom:0;
+}
+
+body {
+	margin-top: 22px;
+}
+
+#left-nav {
+	font-size: 17px;
+}

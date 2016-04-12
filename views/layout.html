@@ -1,62 +1,133 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-  <!-- meta -->
-  <meta charset="utf-8"/>
-  <meta name='description' content='ERP系统'>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="keywords" content="基于Web的ERP系统"/>
-  <meta name="referrer" content="always">
-
-  <link rel="icon" href="" type="image/x-icon"/>
-
-  <title>ERP</title>
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name='description' content='ERP系统'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="基于Web的ERP系统" />
+    <meta name="referrer" content="always">
+    <link rel="icon" href="" type="image/x-icon" />
+    <title>ERP</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/main.css">
 </head>
+
 <body>
-<!-- navbar -->
-<div class='navbar'>
-  <div class='navbar-inner'>
-    <div class='container'>
-      <a class='brand' href='/'></a>
+    <!-- 顶部菜单栏 -->
+    <div class="ui menu fixed" id="top-nav">
+        <div class="ui container">
+            <a href="#" class="header item">
+                <img class="logo" src="image/logo.png"><i class="icon"></i>ERP SYSTEM
+            </a>
+            <div class="right menu">
+              <a href="/" class="item"><i class="home icon"></i>主页</a>
+              <% if (current_user) { %>
+              <div class="ui simple dropdown item">
+                <i class="user icon"></i>我的 <i class="dropdown icon"></i>
+                  <div class="menu">
+                      <a class="item" href="#">修改个人信息</a>
+                      <a class="item" href="#">修改个人口令</a>
+                      <div class="divider"></div>
+  <!--                     <div class="header">Header Item</div>
+  <div class="item">
+      <i class="dropdown icon"></i> Sub Menu
+      <div class="menu">
+          <a class="item" href="#">Link Item</a>
+          <a class="item" href="#">Link Item</a>
+      </div>
+  </div> -->
+                      <a class="item" href="/login">登出</a>
+                  </div>
+                <% } else { %>
+                  <a class="item" href="/login">登入</a>
+                <% } %>
+              </div>
+            </div>
 
-
-      <ul class='nav pull-right'>
-        <li><a href='/'>首页</a></li>
-        <li><a href='/getstart'>新手入门</a></li>
-        <li><a href='/api'>API</a></li>
-        <% if (current_user) { %>
-        <li><a href='/setting'>设置</a></li>
-        <li>
-          <a href='/signout' data-method="post" rel="nofollow">退出</a>
-        </li>
-        <% } else { %>
-        <li><a href='/signup'>注册</a></li>
-        <li><a href='/signin'>登录</a></li>
-        <% } %>
-      </ul>
-      <a class="btn btn-navbar" id="responsive-sidebar-trigger">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
+        </div>
     </div>
-  </div>
-</div>
-<div id='main'>
-  <%- body %>
-</div>
-<div id='backtotop'>回到顶部</div>
-<div id='footer'>
-  <div id='footer_main'>
-    <div class="links">
-      <a class='dark' href='/rss'>RSS</a>
-      |
-      <a class='dark' href='https://github.com/cnodejs/nodeclub/'>源码地址</a>
+    <div class="ui grid" id="container">
+        <div class="four wide column">
+            <!-- 左侧菜单栏 -->
+            <div class="ui left vertical menu " id="left-nav">
+                <div class="item">
+                    <div class="header"><i class="users icon"></i>用户管理</div>
+                    <div class="menu">
+                        <a class="item">用户权限管理</a>
+                        <a class="item">用户身份管理</a>
+                    </div>
+                </div>
+                <div class="item">
+                  <div class="header"><i class="icon dashboard"></i>Dashboard</div>
+                    <div class="menu">
+                        <a class="item">产品销售信息</a>
+                        <a class="item">产品库存信息</a>
+                        <a class="item">账面资金</a>
+                        <a class="item">市场份额</a>
+                    </div>
+                </div>
+                <div class="item">
+                <div class="header"><i class="icon in cart"></i>采购管理</div>
+                    <div class="menu">
+                        <a class="item">Rails</a>
+                        <a class="item">Python</a>
+                        <a class="item">PHP</a>
+                    </div>
+                </div>
+                <div class="item">
+                  <div class="header"><i class="icon cubes"></i>仓库管理</div>
+                    <div class="menu">
+                        <a class="item">已分享</a>
+                        <a class="item">专用的</a>
+                    </div>
+                </div>
+                <div class="item">
+                <div class="header"><i class="icon line chart"></i>销售管理</div>
+                    <div class="menu">
+                        <a class="item">E-mail Support</a>
+                        <a class="item">问答</a>
+                    </div>
+                </div>
+                <div class="item">
+                <div class="header"><i class="icon tasks"></i>任务下达</div>
+                  <div class="menu">
+                        <a class="item">任务列表</a>
+                    </div>
+                </div>
+                <div class="item">
+                <div class="header"><i class="icon warning circle"></i>告警服务</div>
+                  <div class="menu">
+                        <a class="item">查看告警</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="twelve wide column">
+          <div id="content">
+              <%- body %>
+          </div>
+        </div>
+    </div>
+    </div>
+    <!-- 底部footer -->
+    <div class="ui inverted footer segment" id="footer">
+        <div class="ui center aligned container">
+            <div class="ui horizontal inverted small divided link list">
+                <a class="item" href="#">Contact Us</a>
+                <a class="item" href="#">Terms and Conditions</a>
+                <a class="item" href="#">Privacy Policy</a>
+                <a class="item" href="#">About Company</a>
+            </div>
+        </div>
     </div>
 
-  </div>
-</div>
-
-
+    <!-- javascript -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/semantic/semantic.min.js"></script>
+    <script src="javascript/main.js"></script>
 </body>
+
 </html>

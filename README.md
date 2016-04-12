@@ -29,14 +29,18 @@ run the app:
 # Folder structure
 
 ```
-├─assets        存放图片等资源文件
-│  └─images
-├─bin           
-├─build         开发目录
-├─dist          生产目录
-├─lib           框架库
-├─node_modules  
-├─package       JavaScript
-├─source        后端源文件
-└─test          测试
+├─bin
+├─node_modules
+├─public
+│  ├─build
+│  ├─dist
+│  ├─image
+│  ├─javascript
+│  ├─lib
+│  └─stylesheet
+├─server
+│  └─route
+├─test
+└─views
+
 ```
