@@ -26,6 +26,10 @@ run the app:
 
 1. [react 0.13.0](http://reactjs.cn/react/downloads.html)
 
+1. [ejs-mate](https://github.com/JacksonTian/ejs-mate)
+
+1.[validator](https://www.npmjs.com/package/validator#server-side-usage)
+
 # Folder structure
 
 ```

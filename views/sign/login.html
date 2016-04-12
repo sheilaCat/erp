@@ -36,26 +36,30 @@
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui teal image header">
-      <img src="assets/images/logo.png" class="image">
       <div class="content">
-        Log-in to your account
+        Log-in to ERP SYSTEM
       </div>
     </h2>
-    <form class="ui large form">
+    <% if(typeof(error) !== 'undefined') { %>
+    <div class="ui negative message">
+      <i class="close icon"></i>
+      <div class="header"><%= error %> </div></div>
+    <% } %>
+    <form class="ui large form" action="/login" method="post">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text"  placeholder="Username" id="loginname" name="loginname">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" placeholder="Password" id="password" name="password">
           </div>
         </div>
-        <div class="ui fluid large teal submit button">Login</div>
+        <button class="positive large ui button" type="submit">Login</button>
       </div>
 
       <div class="ui error message"></div>
