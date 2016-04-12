@@ -2,6 +2,7 @@ var User = require('../proxy').User;
 var validator = require('validator');
 var eventproxy = require('eventproxy');
 var authMiddleWare = require('../middleware/auth');
+var tool = require('../common/tool');
 
 //sign up
 exports.showSignUp = function(req, res) {
@@ -36,6 +37,10 @@ exports.signup = function(req, res, next) {
 		return;
 	}
 
+	if (!tool.validateId(loginname)) {
+		return ep.emit('signup_error', '用户名不合法。');
+	}
+
 	if (loginname.length < 5) {
 	 	ep.emit('signup_error', '用户名至少需要5个字符。');
 	    return;
@@ -61,13 +66,16 @@ exports.signup = function(req, res, next) {
 			return;
 		}
 
-		User.newAndSave(loginname, password, function(err) {
-			if (err) {
-				return next(err);
-			}
+		tool.bhash(password, ep.done(function (passhash) {
+			User.newAndSave(loginname, passhash, function(err) {
+				if (err) {
+					return next(err);
+				}
 
-			res.render('sign/login');
-		});
+				res.render('sign/login');
+			});
+		}));
+		
 	});
 
 };
@@ -104,9 +112,17 @@ exports.login = function(req, res, next) {
 			return ep.emit('login_error');
 		}
 
-		authMiddleWare.gen_session(user, res);
-	
-		res.redirect('/');
+		var passhash = user.password;
+		tool.bcompare(password, passhash, ep.done(function(bool) {
+			if(!bool) {
+				return ep.emit('login_error');
+			}
+
+			authMiddleWare.gen_session(user, res);
+			res.redirect('/');
+		}))
+
+
 	});
 };
 
