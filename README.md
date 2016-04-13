@@ -20,6 +20,12 @@ run the app:
   $ DEBUG=erp:* npm start
 ```
 
+debug:
+
+```
+node-debug app.js --debug=3000
+
+```
 # framework libray
 
 1. [Semantic-ui](https://github.com/Semantic-Org/Semantic-UI)

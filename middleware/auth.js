@@ -5,6 +5,7 @@ var UserProxy = require('../proxy').User;
 
 
 exports.userRequired = function(req, res, next) {
+
 	  if (!req.session || !req.session.user || !req.session.user._id) {
 	   	res.status(403);
 	   	res.redirect('/login');
@@ -38,3 +39,49 @@ function gen_session(user, res) {
 }
 
 exports.gen_session = gen_session;
+
+var config = {
+	debug: true,
+	admins: { worddd : true }
+}
+
+// 验证用户是否登录
+exports.authUser = function (req, res, next) {
+  var ep = new eventproxy();
+  ep.fail(next);
+
+  // Ensure current_user always has defined.
+  res.locals.current_user = null;
+
+  ep.on('get_user', function (user) {
+    if (!user) {
+      return next();
+    }
+    user = res.locals.current_user = req.session.user = new UserModel(user);
+
+    console.log('--------------------检查用户登录---------------');
+    console.log(req.session.user);
+
+    if (config.admins.hasOwnProperty(user.loginname)) {
+      user.is_admin = true;
+    }
+
+    return next();
+  });
+
+  if (req.session.user) {
+    ep.emit('get_user', req.session.user);
+  } else {
+    var auth_token = req.signedCookies['ERP'];
+    if (!auth_token) {
+      return next();
+    }
+
+    var auth = auth_token.split('$$$$');
+    var user_id = auth[0];
+    UserProxy.getUserById(user_id, ep.done('get_user'));
+
+  }
+
+
+};

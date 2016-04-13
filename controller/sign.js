@@ -11,8 +11,6 @@ exports.showSignUp = function(req, res) {
 
 exports.signup = function(req, res, next) {
 
-	//验证非特殊字符
-	
 	var loginname	 = validator.trim(req.body.loginname).toLowerCase();
 	var password	 = validator.trim(req.body.password);
 	var rePassword   = validator.trim(req.body.rePassword);
@@ -86,7 +84,7 @@ exports.showLogin = function(req, res) {
 };
 
 exports.login = function(req, res, next) {
-
+	console.log('----post 执行login---')
 	var loginname	 = validator.trim(req.body.loginname).toLowerCase();
 	var password	 = validator.trim(req.body.password);
 	var ep = new eventproxy();
@@ -127,9 +125,16 @@ exports.login = function(req, res, next) {
 };
 
 exports.signout = function (req, res, next) {
-	//req.session.destroy();
-	//res.clearCookie('ERP', {path: '/'});
-	res.redirect('/');
+	console.log('----------------------------------signout');
+	console.log(req.session);console.log(req.session.user);
+	req.session.destroy();
+	console.log(req.session);
+	//console.log(res.cookie('ERP'));
+	console.log(req.signedCookies.user)
+	res.clearCookie('ERP', { path: '/' });
+	//console.log('after ERP');
+	console.log(req.signedCookies.user)
+	res.redirect('/login');
 };
 
 

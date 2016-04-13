@@ -19,16 +19,15 @@
     <!-- 顶部菜单栏 -->
     <div class="ui menu fixed" id="top-nav">
         <div class="ui container">
-            <a href="#" class="header item">
+            <a href="/" class="header item">
                 <img class="logo" src="image/logo.png"><i class="icon"></i>ERP SYSTEM
             </a>
             <div class="right menu">
               <a href="/" class="item"><i class="home icon"></i>主页</a>
-              <% if (current_user) { %>
               <div class="ui simple dropdown item">
                 <i class="user icon"></i>我的 <i class="dropdown icon"></i>
                   <div class="menu">
-                      <a class="item" href="/editInfo">修改信息</a>
+                      <a class="item" href="/editUser">修改信息</a>
                       <div class="divider"></div>
                     <div class="item">
                         <i class="dropdown icon"></i>站内信
@@ -37,11 +36,8 @@
                             <a class="item" href="#">发件箱</a>
                         </div>
                     </div>
-                      <a class="item" href="/login">登出</a>
+                      <a class="item" href="/signout">登出</a>
                   </div>
-                <% } else { %>
-                  <a class="item" href="/login">登入</a>
-                <% } %>
               </div>
             </div>
 

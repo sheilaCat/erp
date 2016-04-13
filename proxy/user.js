@@ -18,6 +18,13 @@ exports.getUserByLoginName = function (loginname, callback) {
 	User.findOne({'loginname': loginname}, callback);
 };
 
+exports.getUserById = function (id, callback) {
+  if (!id) {
+    return callback();
+  }
+  User.findOne({_id: id}, callback);
+};
+
 exports.newAndSave = function (loginname, password, callback) {
   var user         = new User();
   user.loginname   = loginname;
