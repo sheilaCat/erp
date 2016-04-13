@@ -22,5 +22,7 @@ router.get('/signout', sign.signout); //登出
 //user center
 router.get('/editUser', user.showEdit); //跳转到修改个人资料
 router.post('/editUser', user.edit); //提交修改
+router.get('/editUserPass', user.showEditPass);
+router.post('/editUserPass', user.editPass); 
 
 module.exports = router;

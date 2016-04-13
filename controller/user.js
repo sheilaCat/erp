@@ -1,10 +1,16 @@
 var validator = require('validator');
 var eventproxy = require('eventproxy');
 var User = require('../proxy').User;
+var tool = require('../common/tool');
 
 //用户修改个人资料
 exports.showEdit = function(req, res) {
 	res.render('user');
+};
+
+//用户修改个人密码
+exports.showEditPass = function(req, res) {
+	res.render('userPass');
 };
 
 exports.edit = function(req, res, next) {
@@ -14,7 +20,6 @@ exports.edit = function(req, res, next) {
 	var department   = validator.trim(req.body.department);
 	var phone		 = validator.trim(req.body.phone);
 	var office		 = validator.trim(req.body.office);
-
 
 	var ep = new eventproxy();
 	ep.fail(next);
@@ -46,4 +51,48 @@ exports.edit = function(req, res, next) {
 		})
 	}));
 
+};
+
+exports.editPass = function(req, res, next) {
+	var oldPassword = validator.trim(req.body.oldPassword);
+	var newPassword = validator.trim(req.body.newPassword);
+	var rePassword = validator.trim(req.body.rePassword);
+
+	var ep = new eventproxy();
+	ep.fail(next);
+
+	ep.on('edit_error', function(msg) {
+		res.status(422);
+		res.render('userPass', {error:msg});
+	});
+
+	if (newPassword !== rePassword) {
+		return ep.emit('edit_error', '两次新密码输入不一致。');
+	}
+
+	User.getUserById(req.session.user._id, ep.done(function(user) {
+		if(!user) {
+			return next(err);
+		}
+
+		var passhash = user.password;
+		tool.bcompare(oldPassword, passhash, ep.done(function(bool) {
+			if(!bool) {
+				return ep.emit('edit_error', '旧密码输入错误！');
+			}
+
+			tool.bhash(newPassword, ep.done(function (passhash2) {
+				user.password = passhash2;
+				user.save(function(err) {
+					if(err) {
+						return next(err);
+					}
+					req.session.user = user.toObject({virtual: true});
+					res.render('userPass', {error: '修改信息成功！'});
+				});
+			}))
+		
+		}))
+
+	}));
 };

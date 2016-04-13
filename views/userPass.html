@@ -1,0 +1,54 @@
+<% layout('layout') -%>
+
+<style type="text/css">
+	.content {
+		max-width: 500px;
+	}
+</style>
+
+
+	<div class="content">
+		<% if (typeof(error) !== 'undefined')  { %>
+			<div class="ui warning message">
+			  <i class="close icon"></i>
+		  	<div class="header"><%= error %> </div> </div>
+		<% } %>
+
+		<form id="edit_form" action="/editUserPass" method="post">
+			<div class="ui form">
+				<div class="required field">
+					<label>用户名</label>
+					<div class="ui left icon input">
+		        	  <input type="text" placeholder="Username" id="loginname" name="loginname" value="<%= current_user.loginname %>" disabled="disabled">
+			          <i class="user icon"></i>
+			        </div>
+				</div>
+				<div class="required field">
+					<label>旧密码</label>
+					<div class="ui left icon input">
+		        	  <input type="password" placeholder="Old Password" id="oldPassword" name="oldPassword">
+			          <i class="lock icon"></i>
+			        </div>
+				</div>
+				<div class="required field">
+					<label>新密码</label>
+					<div class="ui left icon input">
+		        	  <input type="password" placeholder="New Password" id="newPassword" name="newPassword">
+			          <i class="lock icon"></i>
+			        </div>
+				</div>
+				<div class="required field">
+					<label>确认新密码</label>
+					<div class="ui left icon input">
+		        	  <input type="password" placeholder="New Password" id="rePassword" name="rePassword">
+			          <i class="lock icon"></i>
+			        </div>
+				</div>
+	
+				<button class="ui secondary button large" style="margin-left: 150px" type="submit">Okay </button>
+				<a class="ui button large" href="/">Cancel </a>
+
+			</div>
+		</form>
+	</div>
+	
