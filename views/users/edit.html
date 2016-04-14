@@ -1,0 +1,138 @@
+<% layout('layout') -%>
+<style type="text/css">
+	.content {
+		max-width: 500px;
+		margin-top: 10px;
+	}
+</style>
+
+<div class="content">
+	<% if (typeof(error) !== 'undefined')  { %>
+		<div class="ui warning message">
+		  <i class="close icon"></i>
+	  	<div class="header"><%= error %> </div> </div>
+	<% } %>
+
+	<form id="signup_form" action="/editUser<%= user.loginname %>" method="post">
+		<div class="ui form">
+			<div class=" field">
+				<label>用户名</label>
+				<div class="ui left icon input disabled">
+	        	  <input type="text" id="loginname" name="loginname" value="<%= user.loginname %>">
+		          <i class="user icon"></i>
+		        </div>
+			</div>
+			<div class=" field">
+				<label>修改密码</label>
+				<div class="ui left icon input">
+		          <input type="password" placeholder="password" id="password" name="password">
+		          <i class="lock icon"></i>
+		        </div>
+			</div>
+			<div class=" field">
+				<label>确认密码</label>
+				 <div class="ui left icon input">
+		          <input type="password" placeholder="repeat password" id="rePassword" name="rePassword">
+		          <i class="lock icon"></i>
+		        </div>
+			</div>
+			<h4 class="ui horizontal divider header"><i class="setting icon"></i> 权限设置 </h4>
+			<div class="ui two column grid">
+				<div class="column">
+					<div class="ui toggle checkbox">
+					  <% if (user.user_management) { %>
+						<input type="checkbox" name="userm" value="userm" checked="checked">
+					  <% } else { %>
+					  	<input type="checkbox" name="userm" value="userm">
+					  <% } %>
+					  <label>用户管理</label>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui toggle checkbox">
+						<% if (user.sale_management) { %>
+							<input type="checkbox" name="salem" value="salem" checked="checked">
+						<% } else { %>
+							<input type="checkbox" name="salem" value="salem">
+						<% } %>
+					  <label>销售管理</label>
+					</div>
+				</div>
+			</div>
+			<div class="ui two column grid">
+				<div class="column">
+					<div class="ui toggle checkbox">
+						<% if (user.warehouse_management) { %>
+							<input type="checkbox" name="warehousem" value="warehousem" checked="checked">
+						<% } else { %>
+							<input type="checkbox" name="warehousem" value="warehousem">
+						<% } %>
+					  <label>仓库管理</label>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui toggle checkbox">
+						<% if (user.purchase_management) { %>
+							<input type="checkbox" name="purchasem" value="purchasem" checked="checked">
+						<% } else { %>
+							<input type="checkbox" name="purchasem" value="purchasem">
+						<% } %>
+					  <label>采购管理</label>
+					</div>
+
+				</div>
+			</div>
+			
+			
+		
+		
+
+			<h4 class="ui horizontal divider header"><i class="tag icon"></i> 详细资料 </h4>
+			<div class="three fields">
+				<div class="field">
+					<label>员工编号</label>
+					<input type="text" placeholder="employee ID" id="employid" name="employid" value="<%= user.employid %>">
+				</div>
+				<div class="field"><label>姓名</label>
+					<input type="text" placeholder="name" id="name" name="name" value="<%= user.name %>"></div>
+					
+				<div class="field"><label>邮箱</label>
+					<input type="text" placeholder="e-mail" id="email" name="email" value="<%= user.email %>"></div>
+					
+			</div>
+
+			<div class="two fields">
+				<div class="field">
+					<label>职位</label>
+					<input type="text" placeholder="position" id="position" name="position" value="<%= user.position %>">
+				</div>
+				<div class="field">
+					<label>部门</label>
+					<select class="ui dropdown" id="department" name="department" value="<%= user.department %>">
+						<option value="sale">销售</option>
+						<option value="purchase">采购</option>
+					</select>
+				</div>
+
+			</div>
+
+			<div class="fields">
+				<div class="six wide field">
+					<label>工作电话</label>
+					<input type="text" placeholder="phone" id="phone" name="phone" value="<%= user.phone %>">
+				</div>
+				<div class="ten wide field">
+					<label>办公地点</label>
+					<input type="text" placeholder="location" id="office" name="office" value="<%= user.office %>">
+				</div>
+			</div>
+
+
+			<button class="ui secondary button large" style="margin-left: 150px" type="submit">Okay </button>
+			<a class="ui button large" href="/users">Cancel </a>
+
+		</div>
+	</form>
+</div>
+
+

@@ -1,0 +1,58 @@
+<tr>
+    <td>
+        <div class="ui checkbox">
+            <input type="checkbox" name="action">
+            <label></label>
+        </div>
+    </td>
+    <td name="loginname">
+        <%= user.loginname %>
+    </td>
+    <td>
+        <%= user.employid %>
+    </td>
+    <td>
+        <%= user.name %>
+    </td>
+    <td>
+        <%= user.email %>
+    </td>
+    <td>
+        <%= user.position %>
+    </td>
+    <td>
+        <%= user.department %>
+    </td>
+    <td>
+        <%= user.phone %>
+    </td>
+    <td>
+        <%= user.office %>
+    </td>
+    <td>
+        <% if (user.user_management) { %>
+            <i class="large green checkmark icon"></i>
+            <% } %>
+    </td>
+    <td>
+        <% if (user.sale_management) { %>
+            <i class="large green checkmark icon"></i>
+            <% } %>
+    </td>
+    <td>
+        <% if (user.warehouse_management) { %>
+            <i class="large green checkmark icon"></i>
+            <% } %>
+    </td>
+    <td>
+        <% if (user.purchase_management) { %>
+            <i class="large green checkmark icon"></i>
+            <% } %>
+    </td>
+    <td>
+     <div class="ui buttons ">
+     <a class="ui button icon" name="deleteOneUser"><i class="icon remove user left"></i></a>
+     <a class="ui button icon" name="editOneUser"><i class="icon edit"></i></a>
+      </div>
+    </td>
+</tr>

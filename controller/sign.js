@@ -65,11 +65,12 @@ exports.signup = function(req, res, next) {
 		}
 
 		tool.bhash(password, ep.done(function (passhash) {
-			User.newAndSave(loginname, passhash, function(err) {
+
+			User.newAndSave(loginname, passhash, employid, name, email, position, department, phone, office, false, false, false, false,function(err) {
 				if (err) {
 					return next(err);
 				}
-
+					
 				res.render('sign/login');
 			});
 		}));

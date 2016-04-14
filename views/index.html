@@ -15,14 +15,14 @@
 			      <div class="ui dimmer">
 			        <div class="content">
 			          <div class="center">
-			            <div class="ui inverted button">Edit Profile</div>
+			          	<a href="editUser"><div class="ui inverted button">Edit Profile</div></a>
 			          </div>
 			        </div>
 			      </div>
 			      <img src="/image/avatar/rachel.png">
 			    </div>
 			    <div class="content">
-			      <a class="header">Sheila Dai</a>
+			      <a class="header"><%= current_user.name %></a>
 			      <div class="meta">
 			        <span class="date">上次登录：2016-04-11 14:49</span>
 			      </div>
@@ -30,8 +30,7 @@
 			    <div class="extra content">
 			      <a>
 			        <i class="users icon"></i>
-			        职位：总经理
-			        系统身份：超级管理员
+			        职位：<%= current_user.position %>
 			      </a>
 			    </div>
 			  </div>

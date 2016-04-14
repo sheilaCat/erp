@@ -11,3 +11,10 @@ exports.bhash = function (str, callback) {
 exports.bcompare = function (str, hash, callback) {
   bcrypt.compare(str, hash, callback);
 };
+
+exports.isEmptyObject = function(obj) {
+	for (var name in obj) {
+		return false;
+	}
+	return true;
+}

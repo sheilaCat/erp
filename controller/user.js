@@ -5,12 +5,12 @@ var tool = require('../common/tool');
 
 //用户修改个人资料
 exports.showEdit = function(req, res) {
-	res.render('user');
+	res.render('user/user');
 };
 
 //用户修改个人密码
 exports.showEditPass = function(req, res) {
-	res.render('userPass');
+	res.render('user/userPass');
 };
 
 exports.edit = function(req, res, next) {
@@ -26,7 +26,7 @@ exports.edit = function(req, res, next) {
 
 	ep.on('edit_error', function(msg) {
 		res.status(422);
-		res.render('user', {error:msg});
+		res.render('user/user', {error:msg});
 	});
 
 	if (email !== '' && !validator.isEmail(email)) {
@@ -47,7 +47,7 @@ exports.edit = function(req, res, next) {
 			}
 
 			req.session.user = user.toObject({virtual: true});
-			res.render('user', {error: '修改信息成功！',current_user:user});
+			res.render('user/user', {error: '修改信息成功！',current_user:user});
 		})
 	}));
 
@@ -63,7 +63,7 @@ exports.editPass = function(req, res, next) {
 
 	ep.on('edit_error', function(msg) {
 		res.status(422);
-		res.render('userPass', {error:msg});
+		res.render('user/userPass', {error:msg});
 	});
 
 	if (newPassword !== rePassword) {
@@ -88,7 +88,7 @@ exports.editPass = function(req, res, next) {
 						return next(err);
 					}
 					req.session.user = user.toObject({virtual: true});
-					res.render('userPass', {error: '修改信息成功！'});
+					res.render('user/userPass', {error: '修改信息成功！'});
 				});
 			}))
 		

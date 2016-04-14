@@ -3,6 +3,7 @@ var sign = require('./controller/sign');
 var site = require('./controller/site');
 var user = require('./controller/user');
 var auth = require('./middleware/auth');
+var users = require('./controller/users');
 
 var router = express.Router();
 
@@ -24,5 +25,17 @@ router.get('/editUser', user.showEdit); //跳转到修改个人资料
 router.post('/editUser', user.edit); //提交修改
 router.get('/editUserPass', user.showEditPass);
 router.post('/editUserPass', user.editPass); 
+
+//管理所有用户
+router.get('/users', users.showUsers);
+router.get('/addUser', users.showAddUser);
+router.post('/addUser', users.addUser);
+router.get('/editUser:username', users.showEditUser);
+router.post('/editUser:username', users.editUser);
+router.post('/deleteUser:username', users.deleteUser);
+router.post('/users', users.showUsers);
+
+//分页查询
+router.get('/users:pageNum', users.showUsers);
 
 module.exports = router;

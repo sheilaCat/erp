@@ -51,8 +51,7 @@
                 <div class="item">
                     <div class="header"><i class="users icon"></i>用户管理</div>
                     <div class="menu">
-                        <a class="item">用户权限管理</a>
-                        <a class="item">用户身份管理</a>
+                        <a class="item" href="/users">用户信息管理</a>
                     </div>
                 </div>
                 <div class="item">
@@ -123,6 +122,21 @@
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/semantic/semantic.min.js"></script>
     <script src="javascript/main.js"></script>
+
+<script>
+  $(document)
+    .ready(function() {
+      $('.ui.dropdown').dropdown();
+
+      $('.ui.buttons .dropdown.button').dropdown({
+        action: 'combo'
+      });
+    })
+  ;
+  </script>
+
+ <%- block('userlist').toString() %>
+
 </body>
 
 </html>
