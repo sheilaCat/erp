@@ -23,6 +23,7 @@ $(document).on('click', 'a[name=deleteOneUser]', function() {
 
 });
 
+//全选操作
 var allCheck = $('#users_list tbody tr td:first-child input[name=action]');
 $(document).on('click', '#checkAll', function() {
 	if (this.checked) {
@@ -30,8 +31,16 @@ $(document).on('click', '#checkAll', function() {
 	} else {
 		allCheck.attr('checked', false);
 	}
+
+	if($('input[name=action]:checked').length === 0) {
+		$('#deleteMulti').addClass('disabled');
+	} else {
+		$('#deleteMulti').removeClass('disabled');
+	}
 });
 
+
+//页码跳转
 $(document).on('click', '#pagination', function(e) {
 	if(e.target.tagName === 'A') {
 		var pageNum = $(e.target).html().trim();
@@ -57,3 +66,25 @@ var displayPageNum = function() {
 };
 
 displayPageNum();
+
+$('#deleteMulti').on('click', function() {
+	var users = []; //存放需要删除的用户数组
+	var td = $('input[name=action]:checked').parent().parent().parent().find('td[name=loginname]');
+
+	for(var i = 0; i < td.length;i++){
+		users.push($(td[i]).html().trim());
+	}
+
+	$.post('/deleteUser' + users);
+	location.reload();
+});
+
+//批量删除按钮
+
+$('input[name=action]').on('click', function() {
+	if($('input[name=action]:checked').length === 0) {
+		$('#deleteMulti').addClass('disabled');
+	} else {
+		$('#deleteMulti').removeClass('disabled');
+	}
+});

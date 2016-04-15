@@ -254,11 +254,29 @@ exports.editUser = function(req, res, next) {
 
 exports.deleteUser = function(req, res, next){
 	var loginname = req.params.username;
+	console.log('-===================================req.params.username');
+	console.log(loginname);
+
+	var query = {};
+
+	if(loginname.indexOf(',') === -1){
+		query = {
+			loginname:loginname
+		}
+	}else{
+		loginname = loginname.split(',');
+		query = {
+			loginname: {$in:loginname}
+		}
+	}
+
+	console.log('-----------query');
+	console.log(query);
 	var ep = new eventproxy();
 
 	ep.fail(next);
 
-	User.remove(loginname, function(err){
+	User.remove(query, function(err){
 		if(err){
 			return next();
 		}

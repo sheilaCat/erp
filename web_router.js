@@ -35,6 +35,7 @@ router.post('/editUser:username', users.editUser);
 router.post('/deleteUser:username', users.deleteUser);
 router.post('/users', users.showUsers);
 
+
 //分页查询
 router.get('/users:pageNum', users.showUsers);
 

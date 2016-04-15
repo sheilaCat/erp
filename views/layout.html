@@ -48,12 +48,14 @@
         <div class="four wide column">
             <!-- 左侧菜单栏 -->
             <div class="ui left vertical menu " id="left-nav">
+             <% if(current_user.user_management) { %>
                 <div class="item">
                     <div class="header"><i class="users icon"></i>用户管理</div>
                     <div class="menu">
                         <a class="item" href="/users">用户信息管理</a>
                     </div>
                 </div>
+                <% } %>
                 <div class="item">
                   <div class="header"><i class="icon dashboard"></i>Dashboard</div>
                     <div class="menu">
@@ -63,6 +65,7 @@
                         <a class="item">市场份额</a>
                     </div>
                 </div>
+                <% if(current_user.purchase_management) { %>
                 <div class="item">
                 <div class="header"><i class="icon in cart"></i>采购管理</div>
                     <div class="menu">
@@ -71,6 +74,8 @@
                         <a class="item">PHP</a>
                     </div>
                 </div>
+                <% } %>
+                <% if(current_user.warehouse_management) { %>
                 <div class="item">
                   <div class="header"><i class="icon cubes"></i>仓库管理</div>
                     <div class="menu">
@@ -78,6 +83,8 @@
                         <a class="item">专用的</a>
                     </div>
                 </div>
+                <% } %>
+                <% if(current_user.sale_management) { %>
                 <div class="item">
                 <div class="header"><i class="icon line chart"></i>销售管理</div>
                     <div class="menu">
@@ -85,6 +92,7 @@
                         <a class="item">问答</a>
                     </div>
                 </div>
+                <% } %>
                 <div class="item">
                 <div class="header"><i class="icon tasks"></i>任务下达</div>
                   <div class="menu">

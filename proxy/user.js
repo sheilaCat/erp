@@ -44,17 +44,8 @@ exports.newAndSave = function (loginname, password, employid, name, email, posit
   user.save(callback);
 };
 
-/**
-* 按用户名删除一用户
- * Callback:
- * - err, 数据库异常
- * - user, 用户
- * @param {String} loginname 关键字
- * @param {Function} callback 回调函数
-*/
-
-exports.remove = function (loginname, callback) {
-  User.remove({loginname: loginname}, callback);
+exports.remove = function (query, callback) {
+  User.remove(query, callback);
 };
 
 exports.getCountByQuery = function(query, callback) {
