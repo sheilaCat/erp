@@ -27,9 +27,21 @@ $(document).on('click', 'a[name=deleteOneUser]', function() {
 var allCheck = $('#users_list tbody tr td:first-child input[name=action]');
 $(document).on('click', '#checkAll', function() {
 	if (this.checked) {
-		allCheck.attr('checked', true);
+		allCheck.prop('checked', true);
 	} else {
-		allCheck.attr('checked', false);
+		allCheck.prop('checked', false);
+	}
+
+	if($('input[name=action]:checked').length === 0) {
+		$('#deleteMulti').addClass('disabled');
+	} else {
+		$('#deleteMulti').removeClass('disabled');
+	}
+
+	if($('input[name=action]:checked').length === 0) {
+		$('#deleteMulti').addClass('disabled');
+	} else {
+		$('#deleteMulti').removeClass('disabled');
 	}
 
 	if($('input[name=action]:checked').length === 0) {
