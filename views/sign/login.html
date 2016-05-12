@@ -4,7 +4,9 @@
     <!-- meta -->
     <meta charset="utf-8" />
     <meta name='description' content='ERP系统'>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3,minimum-scale=1,user-scalable-no" />
+    <meta name="apple-mobile-web-app-title" content="ERP系统" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="keywords" content="基于Web的ERP系统" />
     <meta name="referrer" content="always">
     <link rel="icon" href="" type="image/x-icon" />
@@ -26,20 +28,24 @@
     .image {
       margin-top: -100px;
     }
-    .column {
-      max-width: 450px;
+
+
+    .banner {
+      max-width: 100%;
     }
+
   </style>
 
 </head>
 <body>
-<div class="ui middle aligned center aligned grid">
+<div class="ui aligned center aligned grid">
   <div class="column">
-    <h2 class="ui teal image header">
+    <h2 class="ui orange image header">
       <div class="content">
-        Log-in to ERP SYSTEM
+        欢迎登录ERP系统
       </div>
     </h2>
+    <image src="/image/sign.png" class="banner">
     <% if(typeof(error) !== 'undefined') { %>
     <div class="ui negative message">
       <i class="close icon"></i>
@@ -59,7 +65,7 @@
             <input type="password" placeholder="Password" id="password" name="password">
           </div>
         </div>
-        <button class="positive large ui button" type="submit">Login</button>
+        <button class="fluid orange ui button" type="submit">登录</button>
       </div>
 
       <div class="ui error message"></div>
@@ -67,7 +73,7 @@
     </form>
 
     <div class="ui message">
-      New to us? <a href="/signup">Sign Up</a>
+      新用户?<a href="/signup">点击这里注册</a>
     </div>
   </div>
 </div>

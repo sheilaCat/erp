@@ -1,12 +1,5 @@
 <% layout('layout') -%>
-
-<h1 class="ui dividing header">Home Page</h1>
-<h3 class="first">Hi <%= current_user.loginname %></h3>
-<p>A container is a fixed width element that wraps your site's content. It remains a constant size and uses <b>margin</b> to center. Containers are the simplest way to center page content inside a grid.
-</p>
-
-	<div class="ui grid">
-		<div class="four wide column">
+			
 			<!-- 个人信息 -->
 
 			<div class="ui special cards">
@@ -35,11 +28,7 @@
 			    </div>
 			  </div>
 			</div>
-
-
-
-		</div>
-		<div class="eight wide column" id="message-box">
+		<div id="message-box">
 			<!-- 告警消息 新功能提示 -->
 			<div class="ui message">
 			  <i class="close icon"></i>
@@ -73,19 +62,21 @@
 			  </div>
 			</div>
 
-			<!-- 站内消息 -->
+		</div>
 
-			<div class="ui celled list">
+						<!-- 站内消息 -->
+
+			<div class="ui celled list message-box">
 			  <div class="item">
-			    <img class="ui avatar image" src="/images/avatar/helen.png">
+			    <img class="ui avatar image" src="/image/avatar/helen.jpg">
 			    <div class="content">
-			      <div class="header">Snickerdoodle</div>1条请假单待审批</div>
+			      <div class="header">Snickerdoodle</div>1条请假单</div>
 	        <div class="right floated content">
 		      <div class="ui button">查看</div>
 		    </div>	
 			  </div>
 			  <div class="item">
-			    <img class="ui avatar image" src="/images/avatar/daniel.jpg">
+			    <img class="ui avatar image" src="/image/avatar/daniel.jpg">
 			    <div class="content">
 			      <div class="header">Poodle</div>2条告警信息</div>
 			          <div class="right floated content">
@@ -93,17 +84,14 @@
 		    </div>	
 			  </div>
 			  <div class="item">
-			    <img class="ui avatar image" src="/images/avatar/daniel.jpg">
+			    <img class="ui avatar image" src="/image/avatar/elyse.png">
 			    <div class="content">
-			      <div class="header">Paulo</div>1条请假单待审批</div>
+			      <div class="header">Paulo</div>1条请假单</div>
 			          <div class="right floated content">
 		      <div class="ui button">查看</div>
 		    </div>	
 			  </div>
 			</div>
-
-		</div>
-	</div>
 
 <div class="ui items">
   <div class="item">

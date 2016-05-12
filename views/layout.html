@@ -22,10 +22,10 @@
             <a href="/" class="header item">
                 <img class="logo" src="image/logo.png"><i class="icon"></i>ERP SYSTEM
             </a>
+            <a href="javascript:void()" class="item sidebarbtn"><i class="home icon"></i>菜单</a>
             <div class="right menu">
-              <a href="/" class="item"><i class="home icon"></i>主页</a>
               <div class="ui simple dropdown item">
-                <i class="user icon"></i>我的 <i class="dropdown icon"></i>
+                <i class="user icon"></i><%= current_user.loginname %> <i class="dropdown icon"></i>
                   <div class="menu">
                       <a class="item" href="/editUser">修改信息</a>
                       <a class="item" href="/editUserPass">修改密码</a>
@@ -44,21 +44,21 @@
 
         </div>
     </div>
+
+
     <div class="ui grid" id="container">
-        <div class="four wide column">
-            <!-- 左侧菜单栏 -->
-            <div class="ui left vertical menu " id="left-nav">
+    <div class="ui left demo vertical inverted sidebar labeled icon menu">
              <% if(current_user.user_management) { %>
-                <div class="item">
-                    <div class="header"><i class="users icon"></i>用户管理</div>
-                    <div class="menu">
+                <div class="item ui fluid accordion">
+                    <div class="title"><i class="users icon inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">用户管理</h5></div>
+                    <div class="menu content">
                         <a class="item" href="/users">用户信息管理</a>
                     </div>
                 </div>
                 <% } %>
-                <div class="item">
-                  <div class="header"><i class="icon dashboard"></i>Dashboard</div>
-                    <div class="menu">
+                <div class="item ui accordion">
+                  <div class="title"><i class="icon dashboard inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">Dashboard</h5></div>
+                    <div class="menu content">
                         <a class="item">产品销售信息</a>
                         <a class="item">产品库存信息</a>
                         <a class="item">账面资金</a>
@@ -66,9 +66,9 @@
                     </div>
                 </div>
                 <% if(current_user.purchase_management) { %>
-                <div class="item">
-                <div class="header"><i class="icon in cart"></i>采购管理</div>
-                    <div class="menu">
+                <div class="item ui accordion">
+                    <div class="title"><i class="icon in cart inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">采购管理</h5></div>
+                    <div class="menu content">
                         <a class="item">Rails</a>
                         <a class="item">Python</a>
                         <a class="item">PHP</a>
@@ -76,56 +76,44 @@
                 </div>
                 <% } %>
                 <% if(current_user.warehouse_management) { %>
-                <div class="item">
-                  <div class="header"><i class="icon cubes"></i>仓库管理</div>
-                    <div class="menu">
+                <div class="item ui accordion">
+                  <div class="title"><i class="icon cubes inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">仓库管理</h5></div>
+                    <div class="menu content">
                         <a class="item">已分享</a>
                         <a class="item">专用的</a>
                     </div>
                 </div>
                 <% } %>
                 <% if(current_user.sale_management) { %>
-                <div class="item">
-                <div class="header"><i class="icon line chart"></i>销售管理</div>
-                    <div class="menu">
+                <div class="item ui accordion">
+                    <div class="title"><i class="icon line chart inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">销售管理</h5></div>
+                    <div class="menu content">
                         <a class="item">E-mail Support</a>
                         <a class="item">问答</a>
                     </div>
                 </div>
                 <% } %>
-                <div class="item">
-                <div class="header"><i class="icon tasks"></i>任务下达</div>
-                  <div class="menu">
+                <div class="item ui accordion">
+                    <div class="title"><i class="icon tasks inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">任务下达</h5></div>
+                    <div class="menu content">
                         <a class="item">任务列表</a>
                     </div>
                 </div>
-                <div class="item">
-                <div class="header"><i class="icon warning circle"></i>告警服务</div>
-                  <div class="menu">
+                <div class="item ui accordion">
+                    <div class="title"><i class="icon warning circle inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">告警服务</h5></div>
+                  <div class="menu content">
                         <a class="item">查看告警</a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="twelve wide column">
-          <div id="content">
-              <%- body %>
-          </div>
-        </div>
-    </div>
-    </div>
-    <!-- 底部footer -->
-    <div class="ui inverted footer segment" id="footer">
-        <div class="ui center aligned container">
-            <div class="ui horizontal inverted small divided link list">
-                <a class="item" href="#">Contact Us</a>
-                <a class="item" href="#">Terms and Conditions</a>
-                <a class="item" href="#">Privacy Policy</a>
-                <a class="item" href="#">About Company</a>
-            </div>
-        </div>
     </div>
 
+
+
+
+          <%- body %>
+
+    </div>
+    </div>
     <!-- javascript -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/semantic/semantic.min.js"></script>
@@ -141,6 +129,17 @@
       });
     })
   ;
+
+  $('.sidebarbtn').on('click', function() {
+    $('.ui.labeled.icon.sidebar')
+      .sidebar('toggle')
+    ;
+  });
+
+$('.ui.accordion')
+  .accordion()
+;
+
   </script>
 
  <%- block('userlist').toString() %>
