@@ -10,12 +10,13 @@ body {
 }
 
 .ui.special.cards {
-	width: 40%;
+	width: 50%;
 	height: 40%;
 }
 
 #message-box {
-	width: 60%;
+	width: 57%;
+	margin-left: -5%;
 }
 
 .message-box {

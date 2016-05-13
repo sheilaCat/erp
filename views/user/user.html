@@ -1,11 +1,12 @@
 <% layout('layout') -%>
 
-<style type="text/css">
-	.content {
-		max-width: 500px;
-	}
-</style>
 
+	<h2 class="ui header">
+		<i class="user icon orange"></i>
+		<div class="content">账户信息 <div class="sub header">Edit your personal information</div>
+		</div>
+	</h2>
+	
 
 	<div class="content">
 		<% if (typeof(error) !== 'undefined')  { %>
@@ -13,7 +14,6 @@
 			  <i class="close icon"></i>
 		  	<div class="header"><%= error %> </div> </div>
 		<% } %>
-
 		<form id="edit_form" action="/editUser" method="post">
 			<div class="ui form">
 				<div class="required field">
@@ -23,7 +23,7 @@
 			          <i class="user icon"></i>
 			        </div>
 				</div>
-				<h4 class="ui horizontal divider header"><i class="tag icon"></i> 修改详细资料 </h4>
+				
 				<div class="three fields">
 					<div class="field">
 						<label>员工编号</label>
@@ -64,7 +64,7 @@
 					</div>
 				</div>
 
-				<button class="ui secondary button large" style="margin-left: 150px" type="submit">Okay </button>
+				<button class="ui orange button large" style="margin-left: 150px" type="submit">Okay </button>
 				<a class="ui button large" href="/">Cancel </a>
 
 			</div>

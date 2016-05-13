@@ -1,13 +1,12 @@
 <% layout('layout') -%>
 
-<style type="text/css">
-	.content {
-		max-width: 500px;
-	}
-</style>
+	<h2 class="ui header">
+		<i class="lock icon orange"></i>
+		<div class="content">密码修改 <div class="sub header">Change your password</div>
+		</div>
+	</h2>
 
-
-	<div class="content">
+	<div class="content" style="width: 90%;">
 		<% if (typeof(error) !== 'undefined')  { %>
 			<div class="ui warning message">
 			  <i class="close icon"></i>
@@ -45,7 +44,7 @@
 			        </div>
 				</div>
 	
-				<button class="ui secondary button large" style="margin-left: 150px" type="submit">Okay </button>
+				<button class="ui orange button large" type="submit">Okay </button>
 				<a class="ui button large" href="/">Cancel </a>
 
 			</div>

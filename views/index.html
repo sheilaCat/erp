@@ -17,30 +17,19 @@
 			    <div class="content">
 			      <a class="header"><%= current_user.name %></a>
 			      <div class="meta">
-			        <span class="date">上次登录：2016-04-11 14:49</span>
+			        <%= current_user.email %>
 			      </div>
 			    </div>
 			    <div class="extra content">
 			      <a>
 			        <i class="users icon"></i>
-			        职位：<%= current_user.position %>
+			        职位：<%= current_user.department %> <%= current_user.position %>
 			      </a>
 			    </div>
 			  </div>
 			</div>
 		<div id="message-box">
 			<!-- 告警消息 新功能提示 -->
-			<div class="ui message">
-			  <i class="close icon"></i>
-			  <div class="header">欢迎回来！ </div>
-			  <p>如果你觉得厌烦，这个特别的通知可以关闭。</p>
-			</div>
-
-			<div class="ui success message">
-			  <i class="close icon"></i>
-			  <div class="header">你的用户注册已成功。 </div>
-			  <p>现在你可以用你选择的用户名登录了</p>
-			</div>
 
 			<div class="ui success message">
 			  <i class="close icon"></i>
@@ -55,7 +44,6 @@
 
 			<div class="ui icon message">
 			  <i class="close icon"></i>
-			  <i class="inbox icon"></i>
 			  <div class="content">
 			    <div class="header">新功能上线：邮件列表！ </div>
 			    <p>邮件列表能使您第一时间得到需要审批的内容。</p>
@@ -93,49 +81,90 @@
 			  </div>
 			</div>
 
-<div class="ui items">
-  <div class="item">
-    <div class="ui small image">
-      <img src="/image/image.png">
+
+<div class="ui four statistics">
+  <div class="statistic">
+    <div class="value">
+      22
     </div>
-    <div class="content">
-      <div class="header">箭头谷露营</div>
-      <div class="meta">
-        <span class="price">1200 美元</span>
-        <span class="stay">1 个月</span>
-      </div>
-      <div class="description">
-        <p></p>
-      </div>
-    </div>
+    <div class="label">保存 </div>
   </div>
-  <div class="item">
-    <div class="ui small image">
-      <img src="/image/image.png">
-    </div>
-    <div class="content">
-      <div class="header">Buck's Homebrew Stayaway</div>
-      <div class="meta">
-        <span class="price">1000 美元</span>
-        <span class="stay">2 周</span>
-      </div>
-      <div class="description">
-        <p></p>
-      </div>
-    </div>
+  <div class="statistic">
+    <div class="text value">3000 </div>
+    <div class="label">Signups </div>
   </div>
-  <div class="item">
-    <div class="ui small image">
-      <img src="/image/image.png">
-    </div>
-    <div class="content">
-      <div class="header">Astrology Camp</div>
-      <div class="meta">
-        <span class="price">1600 美元</span>
-        <span class="stay">6 周</span>
+  <div class="statistic">
+    <div class="value"><i class="plane icon"></i> 5 </div>
+    <div class="label">Flights </div>
+  </div>
+  <div class="statistic">
+    <div class="value"><img src="/image/avatar/jenny.jpg" class="ui circular inline image"> 42 </div>
+    <div class="label">Team Members </div>
+  </div>
+</div>
+
+
+<div class="ui container"><h3 class="ui center aligned header">Responsive Item</h3>
+  <div class="ui relaxed divided items">
+    <div class="item">
+      <div class="ui small image">
+        <img src="/image/image.png">
       </div>
-      <div class="description">
-        <p></p>
+      <div class="content">
+        <a class="header">Content Header</a>
+        <div class="meta">
+          <a>Date</a>
+          <a>Category</a>
+        </div>
+        <div class="description">
+          A description which may flow for several lines and give context to the content.
+        </div>
+        <div class="extra">
+          <img src="/image/image.png" class="ui circular avatar image"> Username
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small image">
+        <img src="/image/image.png">
+      </div>
+      <div class="content">
+        <a class="header">Content Header</a>
+        <div class="meta">
+          <a>Date</a>
+          <a>Category</a>
+        </div>
+        <div class="description">
+          A description which may flow for several lines and give context to the content.
+        </div>
+        <div class="extra">
+          <div class="ui right floated primary button">
+            Primary
+            <i class="right chevron icon"></i>
+          </div>
+          <div class="ui label">Limited</div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small image">
+        <img src="/image/image.png">
+      </div>
+      <div class="content">
+        <a class="header">Content Header</a>
+        <div class="meta">
+          <a>Date</a>
+          <a>Category</a>
+        </div>
+        <div class="description">
+          A description which may flow for several lines and give context to the content.
+        </div>
+        <div class="extra">
+          <div class="ui right floated primary button">
+            Primary
+            <i class="right chevron icon"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>
