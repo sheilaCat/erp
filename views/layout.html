@@ -11,7 +11,7 @@
     <link rel="icon" href="" type="image/x-icon" />
     <title>ERP</title>
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.css">
     <link rel="stylesheet" type="text/css" href="stylesheet/main.css">
 </head>
 
@@ -19,14 +19,14 @@
     <!-- 顶部菜单栏 -->
     <div class="ui menu fixed" id="top-nav">
         <div class="ui container">
-            <a href="/" class="header item">
+            <a href="javascript:void()" class="header item sidebarbtn">
                 <img class="logo" src="image/logo.png"><i class="icon"></i>ERP SYSTEM
             </a>
-            <a href="javascript:void()" class="item sidebarbtn"><i class="home icon"></i>菜单</a>
             <div class="right menu">
               <div class="ui simple dropdown item">
                 <i class="user icon"></i><%= current_user.loginname %> <i class="dropdown icon"></i>
                   <div class="menu">
+                      <a class="item" href="/">返回首页</a>
                       <a class="item" href="/editUser">修改信息</a>
                       <a class="item" href="/editUserPass">修改密码</a>
                       <a class="item" href="/editAvatar">修改头像</a>
@@ -47,7 +47,7 @@
     </div>
 
 
-    <div class="ui grid" id="container">
+    <div class="ui" id="container" style="margin-top: 60px;">
     <div class="ui left demo vertical inverted sidebar labeled icon menu">
              <% if(current_user.user_management) { %>
                 <div class="item ui fluid accordion">

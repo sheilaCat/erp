@@ -5,18 +5,15 @@
 	margin-bottom:0;
 }
 
-body {
-	margin-top: 30px;
-}
-
 .ui.special.cards {
-	width: 50%;
-	height: 40%;
+	width: 40%;
+	float: left;
 }
 
 #message-box {
-	width: 57%;
-	margin-left: -5%;
+	margin-left:220px;
+	height: 333px;
+
 }
 
 .message-box {

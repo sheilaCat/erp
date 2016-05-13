@@ -1,49 +1,41 @@
 <% layout('layout') -%>
 
-
-<style type="text/css">
-	#users_list , #query{
-		margin-left: -100px;
-		margin-top: 10px;
-		margin-right: 20px;
-	}
-
-	#pagination {
-		margin-top: 10px;
-		margin-left: -100px;
-	}
-
-  #deleteUserMsg .content p{
-    text-align: center;
-  }
-
-
-</style>
 	<form id="query_users" method="post" action="/users">
-		<div id="query" class="ui grid">
 
-				<div class="four wide column">
+		<div class="ui accordion">
+			<div class="title"><i class="dropdown icon"></i>查询用户</div>
+			<div class="content">
+					<div id="query" class="transition hidden" >
+
+			<div class="ui form">
+				<div class="field">
 					<label>用户名：</label>
 				    <div class="ui input">
 				        <input type="text" placeholder="Seach..." name="username">
 				    </div>
 				</div>
+			</div>
 
-				<div class="four wide column">
+			<div class="ui form">
+				<div class="field">
 					<label>员工号：</label>
 				    <div class="ui input">
 				        <input type="text" placeholder="Seach..." name="employid">
 				    </div>
 				</div>
+			</div>
 		
-				<div class="five wide column">
+			<div class="ui form">
+				<div class="field">
 					<label>姓名：</label>
 				    <div class="ui input">
 				        <input type="text" placeholder="Seach..." name="name">
 				    </div>
 				</div>
+			</div>
 
-				<div class="four wide column">
+			<div class="ui form">
+				<div class="field">
 					<label>部门：</label>
 					<select class="ui search dropdown" name="department">
 						<option value="all">all</option>
@@ -51,11 +43,12 @@
 						<option value="采购部门">采购部门</option>
 						<option value="库管部门">库管部门</option>
 					</select>
-
-
 				</div>
+			</div>
 
-					<div class="six wide column">
+				<div class="ui form">
+					<div class="field">
+					<label>管理权限：</label>
 				    <select name="rights" multiple="" class="ui fluid dropdown" placeholder="xxx">
 				        <option value="user_management" name="user_management">用户管理</option>
 				        <option value="warehouse_management" name="warehouse_management">库存管理</option>
@@ -63,12 +56,19 @@
 				        <option value="purchase_management" name="purchase_management">采购管理</option>
 				    </select>
 				</div>
-				<div class="two wide column">
-					<button class="ui primary button" type="submit"><i class="icon search"></i>查找</button>
+				</div>
+
+				<div class="ui form">
+					<div class="field">
+						<button class="ui orange button" type="submit"><i class="icon search"></i>查找</button>
+					</div>
 				</div>
 				
 
 		</div>
+			</div>
+		</div>
+		
 	</form>
 
 
@@ -80,7 +80,7 @@
 	</div>
 
 <% } %>
-<table class="ui striped table selectable celled structured ">
+<table class="ui striped table selectable celled structured compact unstackable">
     <thead>
         <tr>
         	<th rowspan="2"></th>
@@ -114,7 +114,7 @@
             <label></label>
         </div></th>
       <th colspan="13">
-        <a class="ui right floated small primary labeled icon button" href="/addUser">
+        <a class="ui right floated small orange labeled icon button" href="/addUser">
           <i class="user icon"></i> Add User
         </a>
         <a class="ui small disabled button" id="deleteMulti">
