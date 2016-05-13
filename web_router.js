@@ -23,8 +23,10 @@ router.get('/signout', sign.signout); //登出
 //user center
 router.get('/editUser', user.showEdit); //跳转到修改个人资料
 router.post('/editUser', user.edit); //提交修改
-router.get('/editUserPass', user.showEditPass);
-router.post('/editUserPass', user.editPass); 
+router.get('/editUserPass', user.showEditPass); //跳转到修改密码
+router.post('/editUserPass', user.editPass); //提交修改
+router.get('/editAvatar', user.showEditAvatar);
+router.post('/editAvatar', user.editAvatar);
 
 //管理所有用户
 router.get('/users', users.showUsers);

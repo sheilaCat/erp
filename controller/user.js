@@ -2,6 +2,9 @@ var validator = require('validator');
 var eventproxy = require('eventproxy');
 var User = require('../proxy').User;
 var tool = require('../common/tool');
+var formidable = require('formidable');
+var util = require('util');
+var fs = require('fs');
 
 //用户修改个人资料
 exports.showEdit = function(req, res) {
@@ -12,6 +15,11 @@ exports.showEdit = function(req, res) {
 exports.showEditPass = function(req, res) {
 	res.render('user/userPass');
 };
+
+//用户修改个人头像
+exports.showEditAvatar = function(req, res) {
+	res.render('user/userAvatar');
+}
 
 exports.edit = function(req, res, next) {
 	var name 		 = validator.trim(req.body.name);
@@ -95,4 +103,21 @@ exports.editPass = function(req, res, next) {
 		}))
 
 	}));
+};
+
+exports.editAvatar = function(req, res, next) {
+	var form = new formidable.IncomingForm();
+	form.uploadDir = "E:/git/erp/public/image/avatar/";
+	form.keepExtensions = true;
+	var ep = new eventproxy();
+	ep.fail(next);
+
+ 	form.parse(req, function(err, fields, files) {
+        User.getUserById(req.session.user._id, ep.done(function(user) {
+        	fs.renameSync(files.avatar.path, "E:/git/erp/public/image/avatar/" + fields.loginname + '.png');
+			res.render('user/userAvatar', {error: '修改头像成功！',current_user:user});
+		}));
+    });
+
+	 
 };

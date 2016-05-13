@@ -23,6 +23,8 @@
     "validator": "^5.2.0"
   },
   "devDependencies": {
-    "node-inspector": "^0.12.8"
+    "formidable": "^1.0.17",
+    "node-inspector": "^0.12.8",
+    "util": "^0.10.3"
   }
 }

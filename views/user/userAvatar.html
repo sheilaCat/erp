@@ -1,0 +1,43 @@
+<% layout('layout') -%>
+
+<h2 class="ui header">
+	<i class="user icon orange"></i>
+	<div class="content">修改头像	</div>
+</h2>	
+
+
+<div class="ui card">
+  <div class="image">
+    <img src="/image/avatar/<%= current_user.loginname %>.png">
+  </div>
+</div>
+
+<div class="content">
+	<% if (typeof(error) !== 'undefined')  { %>
+		<div class="ui warning message">
+		  <i class="close icon"></i>
+	  	<div class="header"><%= error %> </div> </div>
+	<% } %>
+
+	<form enctype="multipart/form-data" action="/editAvatar" method="post">
+		<div class="ui form">
+			<div class="field">
+				<label>用户名</label>
+				<div class="ui left icon input">
+	        	  <input type="text" placeholder="loginname" id="loginname" name="loginname" value="<%= current_user.loginname %>">
+		          <i class="user icon"></i>
+		        </div>
+			</div>	
+			<div class="field">
+				<label>用户头像</label>
+				<div class="ui left icon input">
+	        	  <input type="file" placeholder="avatar" id="avatar" name="avatar" value="<%= current_user.avatar %>">
+		          <i class="user icon"></i>
+		        </div>
+			</div>	
+		</div>
+
+	<button class="ui orange button large" type="submit">Okay </button>
+	<a class="ui button large" href="/">Cancel </a>
+	</form>
+</div>
