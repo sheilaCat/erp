@@ -1,5 +1,20 @@
 <% layout('layout') -%>
 
+<div class="ui ordered steps">
+  <div class="active step">
+    <div class="content">
+      <div class="title">新增销售单</div>
+      <div class="description">填入销售单基本信息</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="content">
+    	<a href="/sale">
+      <div class="title">补充明细</div>
+      <div class="description">填入销售单详细内容</div></a>
+    </div>
+  </div>
+</div>
 <div class="content">
 	<% if (typeof(error) !== 'undefined')  { %>
 		<div class="ui warning message">
@@ -30,11 +45,11 @@
 	        	<input type="text" id="totalMoney" name="totalMoney">
 			</div>
 
-			<button class="ui orange button large" type="submit">Okay </button>
-			<a class="ui button large" href="/login">Cancel </a>
+			<button class="ui orange button large" type="submit" name="submit">确认 </button>
+			<a class="ui button large" href="/sale">取消 </a>
 
 		</div>
 	</form>
 </div>
 
-
+<% block('addSellOrder').append('<script src="javascript/addSellOrder.js"></script>') %>

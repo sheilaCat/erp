@@ -1,0 +1,97 @@
+<% layout('layout') -%>
+<div class="ui ordered steps">
+  <div class="completed step">
+    <div class="content">
+      <div class="title">新增销售单</div>
+      <div class="description">填入销售单基本信息</div>
+    </div>
+  </div>
+  <div class="active step">
+    <div class="content">
+      <div class="title">补充明细</div>
+      <div class="description">填入销售单详细内容</div>
+    </div>
+  </div>
+</div>
+<div class="content">
+	<% if (typeof(error) !== 'undefined')  { %>
+		<div class="ui warning message">
+		  <i class="close icon"></i>
+	  	<div class="header"><%= error %> </div> </div>
+	<% } %>
+	<form action="/orderDetail" method="post">
+		<div class="ui form">
+			<div class="field">
+				<label>单据编号</label>
+	        	  <input type="text" id="billId" name="billId" value="<%= orderDetail.billId %>">
+			</div>
+			<div class="field">
+				<label>物料编号</label>
+	        	  <input type="text" id="matId" name="matId" value="<%= orderDetail.matId %>">
+			</div>
+			<div class="field">
+				<label>物料名称</label>
+	        	  <input type="text" id="matName" name="matName" value="<%= orderDetail.matName %>">
+			</div>
+			<div class="field">
+				<label>规格型号</label>
+	        	  <input type="text" id="matSpec" name="matSpec" value="<%= orderDetail.matSpec %>">
+			</div>
+			<div class="field">
+				<label>单位名称</label>
+	        	<input type="text" id="matunit" name="matUnit" value="<%= orderDetail.matUnit %>">
+			</div>
+			<div class="field">
+				<label>数量</label>
+	        	<input type="text" id="number" name="number" value="<%= orderDetail.number || '' %>">
+			</div>
+			<div class="field">
+				<label>客户编号</label>
+	        	<input type="text" id="cliId" name="cliId" value="<%= orderDetail.cliId %>">
+			</div>
+			<div class="field">
+				<label>客户地址</label>
+	        	<input type="text" id="cliPlace" name="cliPlace" value="<%= orderDetail.cliPlace %>">
+			</div>
+			<div class="field">
+				<label>折前单价</label>
+	        	<input type="text" id="agioAgoPrice" name="agioAgoPrice" value="<%= orderDetail.agioAgoPrice || '' %>">
+			</div>
+			<div class="field">
+				<label>折数</label>
+	        	<input type="text" id="agio" name="agio" value="<%= orderDetail.agio || '' %>">
+			</div>
+			<div class="field">
+				<label>单价</label>
+	        	<input type="text" id="price" name="price" value="<%= orderDetail.price || '' %>">
+			</div>
+			<div class="field">
+				<label>金额</label>
+	        	<input type="text" id="money" name="money" value="<%= orderDetail.money || '' %>">
+			</div>
+			<div class="field">
+				<label>实际成本</label>
+	        	<input type="text" id="factCost" name="factCost" value="<%= orderDetail.factCost || ''  %>">
+			</div>
+			<div class="field">
+				<label>标准成本</label>
+	        	<input type="text" id="criterionCost" name="criterionCost" value="<%= orderDetail.criterionCost || ''  %>">
+			</div>
+			<div class="field">
+				<label>预出库日</label>
+	        	<input type="text" id="outStoreroom" name="outStoreroom" value="<%= orderDetail.outStoreroom || ''%>">
+			</div>
+			<div class="field">
+				<label>未出数量</label>
+	        	<input type="text" id="notOutNumber" name="notOutNumber" value="<%= orderDetail.notOutNumber || '' %>">
+			</div>
+
+			<button class="ui orange button large" type="submit">修改 </button>
+			<a class="ui red button large" >审批通过 </button>
+			<a class="ui button large" href="/sale">取消 </a>
+
+		</div>
+	</form>
+</div>
+
+<% block('editDetail').append('<script src="javascript/editDetail.js"></script>') %>
