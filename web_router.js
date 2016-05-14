@@ -5,6 +5,7 @@ var user = require('./controller/user');
 var auth = require('./middleware/auth');
 var users = require('./controller/users');
 var logger = require('./controller/logger');
+var sale = require('./controller/sale');
 
 var router = express.Router();
 
@@ -31,6 +32,7 @@ router.post('/editAvatar', user.editAvatar); //提交修改个人头像
 
 //管理所有用户
 router.get('/users', users.showUsers);
+router.get('/users:pageNum', users.showUsers); //分页查询
 router.get('/addUser', users.showAddUser);
 router.post('/addUser', users.addUser);
 router.get('/editUser:username', users.showEditUser);
@@ -41,7 +43,10 @@ router.post('/users', users.showUsers);
 //日志
 router.get('/logger', logger.showLog);
 
-//分页查询
-router.get('/users:pageNum', users.showUsers);
+//销售管理
+router.get('/sale', sale.showSale); //跳转到销售管理页面
+router.get('/addSellOrder', sale.showAdd); //增加销售订单
+router.post('/addSellOrder', sale.add);
+
 
 module.exports = router;

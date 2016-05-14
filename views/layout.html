@@ -57,6 +57,14 @@
                     </div>
                 </div>
                 <% } %>
+                <% if(current_user.sale_management) { %>
+                <div class="item ui accordion">
+                    <div class="title"><i class="icon line chart inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">销售管理</h5></div>
+                    <div class="menu content">
+                        <a class="item" href="/sale">销售管理</a>
+                    </div>
+                </div>
+                <% } %>
                 <div class="item ui accordion">
                   <div class="title"><i class="icon dashboard inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">Dashboard</h5></div>
                     <div class="menu content">
@@ -82,15 +90,6 @@
                     <div class="menu content">
                         <a class="item">已分享</a>
                         <a class="item">专用的</a>
-                    </div>
-                </div>
-                <% } %>
-                <% if(current_user.sale_management) { %>
-                <div class="item ui accordion">
-                    <div class="title"><i class="icon line chart inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">销售管理</h5></div>
-                    <div class="menu content">
-                        <a class="item">E-mail Support</a>
-                        <a class="item">问答</a>
                     </div>
                 </div>
                 <% } %>

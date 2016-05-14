@@ -1,0 +1,140 @@
+<% layout('layout') -%>
+
+<!-- 	<form id="query_users" method="post" action="/users">
+
+		<div class="ui accordion">
+			<div class="title"><i class="dropdown icon"></i>查询用户</div>
+			<div class="content">
+					<div id="query" class="transition hidden" >
+
+			<div class="ui form">
+				<div class="field">
+					<label>用户名：</label>
+				    <div class="ui input">
+				        <input type="text" placeholder="Seach..." name="username">
+				    </div>
+				</div>
+			</div>
+
+			<div class="ui form">
+				<div class="field">
+					<label>员工号：</label>
+				    <div class="ui input">
+				        <input type="text" placeholder="Seach..." name="employid">
+				    </div>
+				</div>
+			</div>
+		
+			<div class="ui form">
+				<div class="field">
+					<label>姓名：</label>
+				    <div class="ui input">
+				        <input type="text" placeholder="Seach..." name="name">
+				    </div>
+				</div>
+			</div>
+
+			<div class="ui form">
+				<div class="field">
+					<label>部门：</label>
+					<select class="ui search dropdown" name="department">
+						<option value="all">all</option>
+						<option value="销售部门">销售部门</option>
+						<option value="采购部门">采购部门</option>
+						<option value="库管部门">库管部门</option>
+					</select>
+				</div>
+			</div>
+
+				<div class="ui form">
+					<div class="field">
+					<label>管理权限：</label>
+				    <select name="rights" multiple="" class="ui fluid dropdown" placeholder="xxx">
+				        <option value="user_management" name="user_management">用户管理</option>
+				        <option value="warehouse_management" name="warehouse_management">库存管理</option>
+				        <option value="sale_management" name="sale_management">销售管理</option>
+				        <option value="purchase_management" name="purchase_management">采购管理</option>
+				    </select>
+				</div>
+				</div>
+
+				<div class="ui form">
+					<div class="field">
+						<button class="ui orange button" type="submit"><i class="icon search"></i>查找</button>
+					</div>
+				</div>
+				
+
+		</div>
+			</div>
+		</div>
+		
+	</form>
+ -->
+
+<div id="sale_list">
+<% if(typeof(msg) !== 'undefined') { %>
+	<div class="ui success message">
+	  <i class="close icon"></i>
+	  <div class="header"><%= msg %> </div>
+	</div>
+
+<% } %>
+<table class="ui striped table selectable celled structured compact unstackable">
+    <thead>
+        <tr>
+        	<th rowspan="2"></th>
+            <th rowspan="2">单据号码</th>
+            <th rowspan="2">单据日期</th>
+            <th rowspan="2">单据名称</th>
+            <th rowspan="2">订单状况</th>
+            <th rowspan="2">业务人员编号</th>
+            <th rowspan="2">业务人员</th>
+            <th rowspan="2">制单人员</th>
+            <th rowspan="2">复核人员</th>
+            <th>审核状态</th> 
+            <th>备注</th>
+            <th>合计金额</th>
+            <th rowspan="2">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+         <%- partial('../sale/list', {collection: sellOrder, as: 'sellOrder'})%>
+    </tbody>
+     <tfoot class="full-width">
+    <tr>
+      <th><div class="ui checkbox">
+            <input type="checkbox" name="checkAll" id="checkAll">
+            <label></label>
+        </div></th>
+      <th colspan="13">
+        <a class="ui right floated small orange labeled icon button" href="/addSellOrder">
+          <i class="user icon"></i> 新增订单
+        </a>
+        <a class="ui small disabled button" id="deleteMulti">
+          批量审批
+        </a>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+
+	
+</div>
+<div class="ui pagination menu" id="pagination">
+</div>
+
+
+
+<div class="ui basic modal" id="deleteUserMsg">
+ <i class="close icon"></i>
+<div class="ui icon header"><i class="archive icon"></i>审批 </div>
+  
+   <div class="content">
+    <p>是否删除某个用户</p>
+  </div>
+    <div class="actions">
+      <div class="ui red basic cancel inverted button"><i class="remove icon"></i> No </div>
+      <div class="ui green ok inverted button"><i class="checkmark icon"></i> Yes </div>
+    </div>
+</div>

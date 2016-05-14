@@ -1,0 +1,40 @@
+<% layout('layout') -%>
+
+<div class="content">
+	<% if (typeof(error) !== 'undefined')  { %>
+		<div class="ui warning message">
+		  <i class="close icon"></i>
+	  	<div class="header"><%= error %> </div> </div>
+	<% } %>
+
+	<form action="/addSellOrder" method="post">
+		<div class="ui form">
+			<div class="field">
+				<label>单据名称</label>
+	        	  <input type="text" id="sinName" name="sinName">
+			</div>
+			<div class="field">
+				<label>业务人员编号</label>
+	        	  <input type="text" id="empId" name="empId">
+			</div>
+			<div class="field">
+				<label>业务人员</label>
+	        	  <input type="text" id="empName" name="empName">
+			</div>
+			<div class="field">
+				<label>备注</label>
+	        	<input type="text" id="remark" name="remark">
+			</div>
+			<div class="field">
+				<label>合计金额</label>
+	        	<input type="text" id="totalMoney" name="totalMoney">
+			</div>
+
+			<button class="ui orange button large" type="submit">Okay </button>
+			<a class="ui button large" href="/login">Cancel </a>
+
+		</div>
+	</form>
+</div>
+
+

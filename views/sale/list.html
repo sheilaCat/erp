@@ -1,0 +1,48 @@
+<tr>
+    <td>
+        <div class="ui checkbox">
+            <input type="checkbox" name="action">
+            <label></label>
+        </div>
+    </td>
+    <td name="billId">
+        <%= sellOrder._id %>
+    </td>
+    <td>
+        <%= sellOrder.billDate %>
+    </td>
+    <td>
+        <%= sellOrder.sinName %>
+    </td>
+    <td>
+        <%= sellOrder.orderStatus %>
+    </td>
+    <td>
+        <%= sellOrder.empId %>
+    </td>
+    <td>
+        <%= sellOrder.empName %>
+    </td>
+    <td>
+        <%= sellOrder.makeEmpName %>
+    </td>
+    <td>
+        <%= sellOrder.auditingEmpName || ''%>
+    </td>
+    <td>
+        <% if (sellOrder.checkStatus) { %>
+            <i class="large green checkmark icon"></i>
+        <% } %>
+    </td>
+    <td>
+        <%= sellOrder.remark %>
+    </td>
+    <td>
+        <%= sellOrder.totalMoney %>
+    </td>
+    <td>
+     <div class="ui buttons ">
+     <a class="ui button icon" name="deleteOneUser">查看明细</a>
+      </div>
+    </td>
+</tr>
