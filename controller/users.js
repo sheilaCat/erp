@@ -254,9 +254,6 @@ exports.editUser = function(req, res, next) {
 
 exports.deleteUser = function(req, res, next){
 	var loginname = req.params.username;
-	console.log('-===================================req.params.username');
-	console.log(loginname);
-
 	var query = {};
 
 	if(loginname.indexOf(',') === -1){
@@ -270,8 +267,6 @@ exports.deleteUser = function(req, res, next){
 		}
 	}
 
-	console.log('-----------query');
-	console.log(query);
 	var ep = new eventproxy();
 
 	ep.fail(next);

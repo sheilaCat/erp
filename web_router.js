@@ -4,6 +4,7 @@ var site = require('./controller/site');
 var user = require('./controller/user');
 var auth = require('./middleware/auth');
 var users = require('./controller/users');
+var logger = require('./controller/logger');
 
 var router = express.Router();
 
@@ -25,8 +26,8 @@ router.get('/editUser', user.showEdit); //跳转到修改个人资料
 router.post('/editUser', user.edit); //提交修改
 router.get('/editUserPass', user.showEditPass); //跳转到修改密码
 router.post('/editUserPass', user.editPass); //提交修改
-router.get('/editAvatar', user.showEditAvatar);
-router.post('/editAvatar', user.editAvatar);
+router.get('/editAvatar', user.showEditAvatar); //跳转到修改个人头像
+router.post('/editAvatar', user.editAvatar); //提交修改个人头像
 
 //管理所有用户
 router.get('/users', users.showUsers);
@@ -37,6 +38,8 @@ router.post('/editUser:username', users.editUser);
 router.post('/deleteUser:username', users.deleteUser);
 router.post('/users', users.showUsers);
 
+//日志
+router.get('/logger', logger.showLog);
 
 //分页查询
 router.get('/users:pageNum', users.showUsers);

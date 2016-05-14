@@ -1,0 +1,23 @@
+<% layout('layout') -%>
+
+<div id="log_list">
+<table class="ui celled padded table compact unstackable">
+    <thead>
+        <tr>    
+            <th>日期</th>
+            <th>时间</th>
+            <th>操作人</th>
+            <th>内容</th>
+        </tr>
+    </thead>
+<tbody>
+
+  </tbody>
+</table>	
+</div>
+<div class="ui pagination menu" id="pagination">
+
+</div>
+
+<input hidden="true" name="data" value="<%= data %>">
+<% block('loglist').append('<script src="javascript/logger.js"></script>') %>

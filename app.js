@@ -7,7 +7,6 @@ var errorhandler = require('errorhandler');
 require('./model');
 var auth = require('./middleware/auth');
 var MongoClient = require('mongodb').MongoClient;
-var log4js = require('log4js');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 
@@ -19,24 +18,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs-mate'));
-
-//log4js
-log4js.configure({
-  appenders: [
-    { type: 'console' }, //控制台输出
-    {
-      type: 'file', //文件输出
-      filename: 'access.log',
-      maxLogSize: 0,
-      backups: 4,
-      catagory: 'normal'
-    }
-  ],
-  replaceConsole: true
-});
-
-var logger = log4js.getLogger('normal');
-logger.setLevel('INFO');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -56,9 +37,6 @@ app.use(session({
 }));
 app.use(auth.authUser);
 
-/*app.use(log4js.connectLogger(logger, {level:log4js.levels.INFO}));*/
-// app.use(log4js.connectLogger(logger, {level: log4js.levels.INFO, format:':method :url'}));
-app.use(log4js.connectLogger(logger, {level: log4js.levels.INFO, format:':method :url'}));
 //routers
 app.use('/', webRouter);
 
@@ -82,9 +60,3 @@ if (app.get('env') === 'development') {
 
 
 module.exports = app;
-
-/*exports.logger = function(name) {
-  var logger = log4js.getLogger(name);
-  logger.setLevel('INFO');
-  return logger;
-}*/

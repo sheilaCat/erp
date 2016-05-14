@@ -3,6 +3,7 @@ var validator = require('validator');
 var eventproxy = require('eventproxy');
 var authMiddleWare = require('../middleware/auth');
 var tool = require('../common/tool');
+var logger = require('../log').logger;
 
 //sign up
 exports.showSignUp = function(req, res) {
@@ -70,7 +71,8 @@ exports.signup = function(req, res, next) {
 				if (err) {
 					return next(err);
 				}
-					
+				logger.info(loginname + '&新注册用户|');
+
 				res.render('sign/login');
 			});
 		}));
@@ -85,7 +87,6 @@ exports.showLogin = function(req, res) {
 };
 
 exports.login = function(req, res, next) {
-	console.log('----post 执行login---')
 	var loginname	 = validator.trim(req.body.loginname).toLowerCase();
 	var password	 = validator.trim(req.body.password);
 	var ep = new eventproxy();
@@ -126,15 +127,8 @@ exports.login = function(req, res, next) {
 };
 
 exports.signout = function (req, res, next) {
-	console.log('----------------------------------signout');
-	console.log(req.session);console.log(req.session.user);
 	req.session.destroy();
-	console.log(req.session);
-	//console.log(res.cookie('ERP'));
-	console.log(req.signedCookies.user)
 	res.clearCookie('ERP', { path: '/' });
-	//console.log('after ERP');
-	console.log(req.signedCookies.user)
 	res.redirect('/login');
 };
 
