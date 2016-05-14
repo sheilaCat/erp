@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "formidable": "^1.0.17",
+    "log4js": "^0.6.36",
     "node-inspector": "^0.12.8",
     "util": "^0.10.3"
   }
