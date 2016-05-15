@@ -8,6 +8,7 @@ var logger = require('./controller/logger');
 var sale = require('./controller/sale');
 var purchase = require('./controller/purchase');
 var warehouse = require('./controller/warehouse');
+var task = require('./controller/task');
 
 var router = express.Router();
 
@@ -66,5 +67,9 @@ router.get('/come', warehouse.come);
 router.get('/comeDetail', warehouse.comeDetail); 
 router.get('/outmain', warehouse.outmain); 
 router.get('/outmainDetail', warehouse.outmainDetail); 
+
+//任务下达
+router.get('/task', task.index); 
+router.get('/taskDetail', task.detail); 
 
 module.exports = router;

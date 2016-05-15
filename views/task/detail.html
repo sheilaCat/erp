@@ -1,0 +1,44 @@
+<% layout('layout') -%>
+<div class="content">
+	
+	<form>
+		<div class="ui form">
+			<div class="field">
+				<label>任务编号</label>
+	        	  <input type="text" id="billId" name="billId">
+			</div>
+			<div class="field">
+				<label>日期</label>
+	        	  <input type="date" id="matId" name="matId">
+			</div>
+			<div class="field">
+				<label>任务级别</label>
+	        	  <select class="ui search dropdown" name="department">
+                        <option value="1">all</option>
+                        <option value="2">1</option>
+                        <option value="3">2</option>
+                        <option value="4">3</option>
+                    </select>
+			</div>
+			<div class="field">
+				<label>下达部门</label>
+	        	  <select class="ui search dropdown" name="department">
+                        <option value="1">all</option>
+                        <option value="2">销售</option>
+                        <option value="3">采购</option>
+                        <option value="4">仓库</option>
+                    </select>
+			</div>
+			<div class="field">
+				<label>任务内容</label>
+	        	<input type="text" id="matunit" name="matUnit" value="">
+			</div>
+	
+
+			<button class="ui orange button large" type="submit">修改 </button>
+			<a class="ui button large" href="/sale">取消 </a>
+
+		</div>
+	</form>
+</div>
+
