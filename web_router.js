@@ -6,6 +6,8 @@ var auth = require('./middleware/auth');
 var users = require('./controller/users');
 var logger = require('./controller/logger');
 var sale = require('./controller/sale');
+var purchase = require('./controller/purchase');
+var warehouse = require('./controller/warehouse');
 
 var router = express.Router();
 
@@ -50,5 +52,19 @@ router.post('/addSellOrder', sale.add);
 router.get('/orderDetail:id', sale.showOrderDetail); //跳转到订单详情
 router.post('/orderDetail', sale.orderDetail); //修改订单详情
 router.post('/saleApproval:billId', sale.approval); //审批订单
+
+//采购管理
+router.get('/stockApply', purchase.stockApply); 
+router.get('/stockApplyDetail', purchase.stockApplyDetail); 
+router.get('/stockOrder', purchase.stockOrder); 
+router.get('/stockOrderDetail', purchase.stockOrderDetail); 
+
+//仓库管理
+router.get('/checked', warehouse.checked); 
+router.get('/checkDetail', warehouse.checkDetail); 
+router.get('/come', warehouse.come); 
+router.get('/comeDetail', warehouse.comeDetail); 
+router.get('/outmain', warehouse.outmain); 
+router.get('/outmainDetail', warehouse.outmainDetail); 
 
 module.exports = router;

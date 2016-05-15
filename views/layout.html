@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="keywords" content="基于Web的ERP系统" />
     <meta name="referrer" content="always">
-    <link rel="icon" href="" type="image/x-icon" />
+    <link rel="icon" href="image/logo.png" type="image/x-icon" />
     <title>ERP</title>
     <!-- stylesheet -->
     <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.css">
@@ -65,22 +65,12 @@
                     </div>
                 </div>
                 <% } %>
-                <div class="item ui accordion">
-                  <div class="title"><i class="icon dashboard inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">Dashboard</h5></div>
-                    <div class="menu content">
-                        <a class="item">产品销售信息</a>
-                        <a class="item">产品库存信息</a>
-                        <a class="item">账面资金</a>
-                        <a class="item">市场份额</a>
-                    </div>
-                </div>
                 <% if(current_user.purchase_management) { %>
                 <div class="item ui accordion">
                     <div class="title"><i class="icon in cart inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">采购管理</h5></div>
                     <div class="menu content">
-                        <a class="item">Rails</a>
-                        <a class="item">Python</a>
-                        <a class="item">PHP</a>
+                        <a class="item" href="/stockApply">采购请购单</a>
+                        <a class="item" href="/stockOrder">采购订单</a>
                     </div>
                 </div>
                 <% } %>
@@ -88,11 +78,23 @@
                 <div class="item ui accordion">
                   <div class="title"><i class="icon cubes inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">仓库管理</h5></div>
                     <div class="menu content">
-                        <a class="item">已分享</a>
-                        <a class="item">专用的</a>
+                        <a class="item" href="/checked">盘点</a>
+                        <a class="item" href="/outmain">出库</a>
+                        <a class="item" href="/come">入库</a>
                     </div>
                 </div>
                 <% } %>
+               <!--  <div class="item ui accordion">
+                  <div class="title"><i class="icon dashboard inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">Dashboard</h5></div>
+                    <div class="menu content">
+                        <a class="item">产品销售信息</a>
+                        <a class="item">产品库存信息</a>
+                        <a class="item">账面资金</a>
+                        <a class="item">市场份额</a>
+                    </div>
+                </div> -->
+                
+                <!-- 
                 <div class="item ui accordion">
                     <div class="title"><i class="icon tasks inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">任务下达</h5></div>
                     <div class="menu content">
@@ -104,7 +106,7 @@
                   <div class="menu content">
                         <a class="item">查看告警</a>
                     </div>
-                </div>
+                </div> -->
                 <% if(current_user.user_management) { %>
                 <div class="item ui fluid accordion">
                     <div class="title"><i class="users icon inverted big"></i><h5 class="ui inverted header" style="margin-top: 10px;">日志管理</h5></div>

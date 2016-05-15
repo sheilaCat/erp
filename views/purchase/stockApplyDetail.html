@@ -1,0 +1,77 @@
+<% layout('layout') -%>
+
+<div class="ui ordered steps">
+  <div class="completed step">
+    <div class="content">
+      <div class="title">新增请购单</div>
+      <div class="description">填入请购单基本信息</div>
+    </div>
+  </div>
+  <div class="active step">
+    <div class="content">
+      <div class="title">补充明细</div>
+      <div class="description">填入请购单详细内容</div>
+    </div>
+  </div>
+</div>
+<div class="content">
+	
+	<form>
+		<div class="ui form">
+			<div class="field">
+				<label>请购单编号</label>
+	        	  <input type="text" id="billId" name="billId" value="57371d570133fb7c1be6722c">
+			</div>
+			<div class="field">
+				<label>物料编号</label>
+	        	  <input type="text" id="matId" name="matId" value="D3344">
+			</div>
+			<div class="field">
+				<label>物料名称</label>
+	        	  <input type="text" id="matName" name="matName" value="衣服">
+			</div>
+			<div class="field">
+				<label>规格型号</label>
+	        	  <input type="text" id="matSpec" name="matSpec" value="M">
+			</div>
+			<div class="field">
+				<label>单位名称</label>
+	        	<input type="text" id="matunit" name="matUnit" value="">
+			</div>
+			<div class="field">
+				<label>数量</label>
+	        	<input type="text" id="number" name="number" value="900">
+			</div>
+			<div class="field">
+				<label>标准进价</label>
+	        	<input type="text" id="cliId" name="cliId" value="">
+			</div>
+			<div class="field">
+				<label>单价</label>
+	        	<input type="text" id="cliPlace" name="cliPlace" value="">
+			</div>
+			<div class="field">
+				<label>需求日期</label>
+	        	<input type="text" id="agioAgoPrice" name="agioAgoPrice" value="">
+			</div>
+			<div class="field">
+				<label>建议采购日期</label>
+	        	<input type="text" id="agio" name="agio" value="">
+			</div>
+			<div class="field">
+				<label>未采购数量</label>
+	        	<input type="text" id="price" name="price" value="40">
+			</div>
+			<div class="field">
+				<label>备注</label>
+	        	<input type="text" id="money" name="money" value="232131">
+			</div>
+
+			<button class="ui orange button large" type="submit">修改 </button>
+			<a class="ui red button large" name="approval">审批通过 </button>
+			<a class="ui button large" href="/sale">取消 </a>
+
+		</div>
+	</form>
+</div>
+

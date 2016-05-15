@@ -1,15 +1,16 @@
 <% layout('layout') -%>
 
-<!-- 	<form id="query_users" method="post" action="/users">
+
+	<form>
 
 		<div class="ui accordion">
-			<div class="title"><i class="dropdown icon"></i>查询用户</div>
+			<div class="title"><i class="dropdown icon"></i>查询单据</div>
 			<div class="content">
 					<div id="query" class="transition hidden" >
 
 			<div class="ui form">
 				<div class="field">
-					<label>用户名：</label>
+					<label>单据号：</label>
 				    <div class="ui input">
 				        <input type="text" placeholder="Seach..." name="username">
 				    </div>
@@ -18,59 +19,50 @@
 
 			<div class="ui form">
 				<div class="field">
-					<label>员工号：</label>
+					<label>日期：</label>
 				    <div class="ui input">
-				        <input type="text" placeholder="Seach..." name="employid">
+				        <input type="date" placeholder="Seach..." name="employid">
 				    </div>
 				</div>
 			</div>
 		
 			<div class="ui form">
 				<div class="field">
-					<label>姓名：</label>
-				    <div class="ui input">
-				        <input type="text" placeholder="Seach..." name="name">
-				    </div>
+					<label>单据状况：</label>
+				    <select class="ui search dropdown" name="department">
+				 	    <option value="1">all</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
 				</div>
 			</div>
 
 			<div class="ui form">
 				<div class="field">
-					<label>部门：</label>
-					<select class="ui search dropdown" name="department">
-						<option value="all">all</option>
-						<option value="销售部门">销售部门</option>
-						<option value="采购部门">采购部门</option>
-						<option value="库管部门">库管部门</option>
+					<label>审核状态：</label>
+				    <select class="ui search dropdown" name="department">
+				    	<option value="1">all</option>
+						<option value="2">未审核</option>
+						<option value="3">已审核</option>
 					</select>
 				</div>
 			</div>
 
-				<div class="ui form">
-					<div class="field">
-					<label>管理权限：</label>
-				    <select name="rights" multiple="" class="ui fluid dropdown" placeholder="xxx">
-				        <option value="user_management" name="user_management">用户管理</option>
-				        <option value="warehouse_management" name="warehouse_management">库存管理</option>
-				        <option value="sale_management" name="sale_management">销售管理</option>
-				        <option value="purchase_management" name="purchase_management">采购管理</option>
-				    </select>
-				</div>
-				</div>
 
-				<div class="ui form">
-					<div class="field">
-						<button class="ui orange button" type="submit"><i class="icon search"></i>查找</button>
-					</div>
+			<div class="ui form">
+				<div class="field">
+					<button class="ui orange button" type="submit"><i class="icon search"></i>查找</button>
 				</div>
-				
+			</div>
+			
 
 		</div>
 			</div>
 		</div>
 		
 	</form>
- -->
+
 
 <div id="sale_list">
 <% if(typeof(msg) !== 'undefined') { %>

@@ -1,0 +1,166 @@
+<% layout('layout') -%>
+
+
+    <form>
+
+        <div class="ui accordion">
+            <div class="title"><i class="dropdown icon"></i>查询单据</div>
+            <div class="content">
+                    <div id="query" class="transition hidden" >
+
+            <div class="ui form">
+                <div class="field">
+                    <label>单据号：</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Seach..." name="username">
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui form">
+                <div class="field">
+                    <label>日期：</label>
+                    <div class="ui input">
+                        <input type="date" placeholder="Seach..." name="employid">
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui form">
+                <div class="field">
+                    <label>请购人编号：</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Seach..." name="username">
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui form">
+                <div class="field">
+                    <label>部门：</label>
+                    <div class="ui input">
+                        <input type="text" placeholder="Seach..." name="username">
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="ui form">
+                <div class="field">
+                    <label>单据状况：</label>
+                    <select class="ui search dropdown" name="department">
+                        <option value="1">all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="ui form">
+                <div class="field">
+                    <label>审核状态：</label>
+                    <select class="ui search dropdown" name="department">
+                        <option value="1">all</option>
+                        <option value="2">未审核</option>
+                        <option value="3">已审核</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="ui form">
+                <div class="field">
+                    <button class="ui orange button" type="submit"><i class="icon search"></i>查找</button>
+                </div>
+            </div>
+            
+
+        </div>
+            </div>
+        </div>
+        
+    </form>
+
+
+<div id="sale_list">
+
+<table class="ui striped table selectable celled structured compact unstackable">
+    <thead>
+        <tr>
+        	<th rowspan="2"></th>
+            <th rowspan="2">请购单编号</th>
+            <th rowspan="2">请购单日期</th>
+            <th rowspan="2">单况</th>
+            <th rowspan="2">请购人员</th>
+            <th rowspan="2">请购人员编号</th>
+            <th rowspan="2">请购部门</th>
+            <th rowspan="2">制单人员</th>
+            <th rowspan="2">复核人员</th>
+            <th>审核状态</th> 
+            <th>操作</th> 
+        </tr>
+    </thead>
+    <tbody>
+        
+<tr>
+    <td>
+        <div class="ui checkbox">
+            <input type="checkbox" name="action">
+            <label></label>
+        </div>
+    </td>
+    <td>
+        57371d670133fb7c1be6722d
+    </td>
+    <td>
+        Sat May 14 2016 20:43:19 GMT+0800 (中国标准时间)
+    </td>
+    <td>1</td>
+    <td>
+        代惠敏
+    </td>
+    <td>
+        S89089
+    </td>
+    <td>
+        采购
+    </td>
+    <td>
+        张全蛋
+    </td>
+    <td>
+        杨二
+    </td>
+    <td>
+        <i class="large green checkmark icon"></i>
+    </td>
+    <td>
+     <div class="ui buttons ">
+     <a class="ui button icon" name="lookup" href="/stockApplyDetail">查看明细</a>
+      </div>
+    </td>
+</tr>
+<tfoot class="full-width">
+    <tr>
+      <th><div class="ui checkbox">
+            <input type="checkbox" name="checkAll" id="checkAll">
+            <label></label>
+        </div></th>
+      <th colspan="13">
+        <a class="ui right floated small orange labeled icon button" href="/addSellOrder">
+          <i class="user icon"></i> 新增请购单
+        </a>
+        <a class="ui small disabled button" id="approvalMuti">
+          批量审批
+        </a>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+
+	
+</div>
+<div class="ui pagination menu" id="pagination">
+</div>
+
