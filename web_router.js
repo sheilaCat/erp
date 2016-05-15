@@ -49,5 +49,6 @@ router.get('/addSellOrder', sale.showAdd); //增加销售订单
 router.post('/addSellOrder', sale.add);
 router.get('/orderDetail:id', sale.showOrderDetail); //跳转到订单详情
 router.post('/orderDetail', sale.orderDetail); //修改订单详情
+router.post('/saleApproval:billId', sale.approval); //审批订单
 
 module.exports = router;

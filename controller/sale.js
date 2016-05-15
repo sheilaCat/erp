@@ -146,3 +146,22 @@ exports.orderDetail = function(req, res, next) {
 		}
 	}));
 };
+
+exports.approval = function(req, res, next) {
+	var ep = new eventproxy();
+	ep.fail(next);
+
+	var billId = req.params.billId;
+	SellOrder.getSellOrderById(billId, ep.done(function(sellOrder) {
+		sellOrder.checkStatus = true;
+		sellOrder.auditingEmpName = req.session.user.name;
+
+		sellOrder.save(function(err) {
+			if (err) {
+				return next(err);
+			}
+
+			logger.info(req.session.user.loginname + '&' + '审批了销售单' + billId + '|');
+		});
+	}));
+};

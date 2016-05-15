@@ -5,6 +5,13 @@ exports.getSellOrderByQuery = function (query, opt, callback) {
   SellOrder.find(query, '', opt, callback);
 };
 
+exports.getSellOrderById = function (id, callback) {
+  if (!id) {
+    return callback();
+  }
+  SellOrder.findOne({_id: id}, callback);
+};
+
 exports.newAndSave = function (sinName, empId, empName, makeEmpName, remark, totalMoney, callback) {
   var sellOrder                 = new SellOrder();
   sellOrder.sinName             = sinName;
